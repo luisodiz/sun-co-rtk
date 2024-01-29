@@ -1,5 +1,9 @@
+import Header from './components/Header/Header.jsx';
+
 const App = () => (
-  <div></div>
+  <div>
+    <Header/>
+  </div>
 )
 
 export default App
