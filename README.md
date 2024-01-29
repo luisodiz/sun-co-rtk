@@ -1,4 +1,4 @@
-# Sun Co
+# SUN CO.
 
 Проект небольшого магазина с использованием React & Redux Toolkit.
 
