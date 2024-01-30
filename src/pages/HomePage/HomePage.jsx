@@ -1,10 +1,12 @@
 import Banner from '../../components/Banner/Banner.jsx'
+import LatestProducts from '../../components/LatesProducts/LatestProducts.jsx'
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <Banner/>
-    </div>
+      <LatestProducts/>
+    </>
   )
 }
 

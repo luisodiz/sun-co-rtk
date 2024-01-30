@@ -1,8 +1,8 @@
 import {LogoStyled, LogoIconStyled} from '../styles/Logo.styled.js'
 
-const Logo = () => {
+const Logo = ({version}) => {
   return (
-    <LogoStyled>
+    <LogoStyled version={version}>
       <LogoIconStyled />
       <span>SUN CO.</span>
     </LogoStyled>
