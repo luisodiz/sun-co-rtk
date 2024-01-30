@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Container = styled.div`
+export const ContainerStyled = styled.div`
   position: relative;
   max-width: 1146px;
   width: 100%;
