@@ -17,12 +17,12 @@ export const ButtonStyled = styled.button.attrs({
   align-items: center;
   justify-content: center;
   ${inter.getBold()}
-  ${getFontSize({size: 16, lineHeight: 20})}
+  ${getFontSize({size: 14, lineHeight: 18})}
   background: ${({theme}) => theme.secondaryColor};
   color: #fff;
   border: none;
   min-width: 142px;
-  padding: 8px 24px;
+  padding: 10px 24px;
   border-radius: 10px;
   cursor: pointer;
   transition: all .24s;
@@ -32,7 +32,23 @@ export const ButtonStyled = styled.button.attrs({
     margin-right: ${({$isIconLeftSide}) => $isIconLeftSide ? '10px' : '0'};
   }
   
-  &:hover {
-    background: ${({theme}) => theme.buttonHoverBg};
+  @media(min-width: ${({theme}) => theme.media.desktop}) {
+    ${getFontSize({size: 16, lineHeight: 20})}
+    padding: 8px 24px;
+
+    &:hover {
+      background: ${({theme}) => theme.buttonHoverBg};
+    }
+  }
+`
+
+export const ButtonBigStyled = styled(ButtonStyled)`
+  width: 100%;
+  padding: 14px 20px;
+  ${getFontSize({size: 16, lineHeight: 20})};
+  
+  @media(min-width: ${({theme}) => theme.media.desktop}) {
+    padding: 22px 30px;
+    ${getFontSize({size: 18, lineHeight: 20})};
   }
 `

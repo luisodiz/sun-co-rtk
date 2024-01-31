@@ -10,7 +10,12 @@ const theme = {
   mainColor: '#67696e',
   secondaryColor: '#201b21',
   buttonHoverBg: 'rgba(32, 27, 33, .7)',
-  footerBg: '#201b21'
+  footerBg: '#201b21',
+  media: {
+    desktop: '1116px',
+    tablet: '720px',
+    mobile: '575px'
+  }
 }
 
 const App = () => (

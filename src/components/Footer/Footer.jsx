@@ -8,6 +8,10 @@ const Footer = () => {
     <FooterStyled>
       <ContainerStyled>
         <Logo version="light"/>
+        <div>
+          <Logo version="light"/>
+          <Socials/>
+        </div>
         <span>&copy; {new Date().getFullYear()} dot.cards text task. All rights reserved</span>
         <Socials/>
       </ContainerStyled>

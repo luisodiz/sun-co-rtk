@@ -3,15 +3,19 @@ import {normalize} from 'styled-normalize'
 import {inter, getFontSize} from './mixins.js'
 
 const GlobalStyles = createGlobalStyle`
-  ${normalize}
+  ${normalize};
 
   * {
     box-sizing: border-box;
   }
   
   body {
-    ${inter.getRegular()}
-    ${getFontSize()}
+    ${inter.getRegular()};
+    ${getFontSize({size: 16, lineHeight: 20})};
+    
+    @media (min-width: ${({theme}) => theme.media.desktop}) {
+      ${getFontSize()};
+    }
   }
   
   h1, 

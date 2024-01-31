@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const SocialsStyled = styled.ul`
   list-style: none;
   display: inline-flex;
+  margin: 0;
+  padding: 0;
 `
 
 export const SocialsItem = styled.li`
@@ -24,8 +26,10 @@ export const SocialsItem = styled.li`
     background: #363137;
     transition: background .2s;
     
-    &:hover {
-      background: #ec5e2a;
-    }
+    @media (min-width: ${({theme}) => theme.media.desktop}) {
+      &:hover {
+        background: #ec5e2a;
+      }
+    }   
   }
 `
