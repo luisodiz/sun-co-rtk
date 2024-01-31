@@ -3,7 +3,6 @@ import {ContainerStyled} from '../styles/Container.styled.js'
 import {BannerStyled} from '../styles/Banner.styled.js'
 import {ImageStyled} from '../styles/Image.styled.js'
 import {ButtonIconStyled, ButtonBigStyled} from '../styles/Button.styled.js'
-import BannerImg from '../../assets/img/banner.png'
 import Arrow from '../../assets/img/arrow-right.svg?react'
 
 const Banner = () => {
@@ -21,7 +20,7 @@ const Banner = () => {
             </ButtonBigStyled>
           </div>
           <div className="banner-right">
-            <ImageStyled src={BannerImg} alt="Кроссовки Nike"/>
+            <ImageStyled src="./img/banner.png" alt="Кроссовки Nike"/>
           </div>
         </BannerStyled>
       </ContainerStyled>

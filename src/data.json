@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "preview": "./img/preview.jpg",
+    "title": "Off-White",
+    "description": "Out Of Office \"Ooo\" sneakers",
+    "price": 775
+  },
+  {
+    "id": 2,
+    "preview": "./img/preview.jpg",
+    "title": "Nike",
+    "description": "Nike Air Force Premium",
+    "price": 200
+  },
+  {
+    "id": 3,
+    "preview": "./img/preview.jpg",
+    "title": "Nike2",
+    "description": "Nike Air Force Premium",
+    "price": 270
+  },
+  {
+    "id": 4,
+    "preview": "./img/preview2.jpg",
+    "title": "Adidas",
+    "description": "DAILY 3.0 SHOES",
+    "price": 200
+  }
+]

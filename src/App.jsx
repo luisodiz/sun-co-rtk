@@ -23,7 +23,9 @@ const App = () => (
     <GlobalStyles/>
     <WrapperStyled>
       <Header/>
-      <HomePage/>
+      <main>
+        <HomePage/>
+      </main>
       <Footer/>
     </WrapperStyled>
   </ThemeProvider>
