@@ -1,17 +1,27 @@
-import Logo from '../Logo/Logo.jsx';
-import ViewCart from '../ViewCart/ViewCart.jsx'
-import {HeaderStyled} from '../styles/Header.styled.js'
-import {ContainerStyled} from '../styles/Container.styled.js'
+import styled from 'styled-components'
+import Logo from '../Logo/Logo';
+import Container from '../Container/Container'
+import ViewCart from '../ViewCart/ViewCart'
 
+
+const StyledHeader = styled.header`
+  padding: 12px 0;
+  border-bottom: 1px solid #e9ebee;
+  
+  .line {
+    display: flex;
+    justify-content: space-between;
+  }
+`
 
 const Header = () => {
   return (
-    <HeaderStyled>
-      <ContainerStyled>
-        <Logo/>
+    <StyledHeader>
+      <Container className="line">
+        <Logo href="#"/>
         <ViewCart/>
-      </ContainerStyled>
-    </HeaderStyled>
+      </Container>
+    </StyledHeader>
   );
 };
 

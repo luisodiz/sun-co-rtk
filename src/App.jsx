@@ -1,5 +1,5 @@
-import {WrapperStyled} from './components/styles/Wrapper.styled.js'
 import Header from './components/Header/Header.jsx';
+import MainWrapper from './components/MainWrapper/MainWrapper'
 import Footer from './components/Footer/Footer.jsx'
 import HomePage from './pages/HomePage/HomePage.jsx'
 
@@ -12,22 +12,21 @@ const theme = {
   buttonHoverBg: 'rgba(32, 27, 33, .7)',
   footerBg: '#201b21',
   media: {
-    desktop: '1116px',
-    tablet: '720px',
-    mobile: '575px'
+    desktop: '(min-width: 1116px)',
+    tablet: '(min-width: 575px)',
   }
 }
 
 const App = () => (
   <ThemeProvider theme={theme}>
     <GlobalStyles/>
-    <WrapperStyled>
+    <MainWrapper>
       <Header/>
-      <main>
+      {/*<main>*/}
         <HomePage/>
-      </main>
+      {/*</main>*/}
       <Footer/>
-    </WrapperStyled>
+    </MainWrapper>
   </ThemeProvider>
 )
 

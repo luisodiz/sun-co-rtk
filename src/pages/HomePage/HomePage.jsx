@@ -1,5 +1,5 @@
-import Banner from '../../components/Banner/Banner.jsx'
-import LatestProducts from '../../components/LatesProducts/LatestProducts.jsx'
+import Banner from '../../components/Banner/Banner'
+import LatestProducts from '../../components/LatesProducts/LatestProducts'
 
 const HomePage = () => {
   return (

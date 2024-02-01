@@ -1,17 +1,17 @@
-import {SectionStyled, SectionTitleStyled} from '../styles/Section.styled.js'
-import {ContainerStyled} from '../styles/Container.styled.js'
-import ProductList from '../ProductList/ProductList.jsx'
+import Section from '../Section/Section'
+import ProductList from '../ProductList/ProductList'
 import products from '../../data.json'
+import Container from '../Container/Container'
 
 const LatestProducts = () => {
   return (
-    <SectionStyled>
-      <ContainerStyled>
-        <SectionTitleStyled>Explore our latest drops</SectionTitleStyled>
+    <Section>
+      <Container>
+        <h2>Explore our latest drops</h2>
         Some products will be here...
         <ProductList products={products}/>
-      </ContainerStyled>
-    </SectionStyled>
+      </Container>
+    </Section>
   )
 }
 

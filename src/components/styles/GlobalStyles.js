@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     ${inter.getRegular()};
     ${getFontSize({size: 16, lineHeight: 20})};
+    background: #fff;
     
     @media (min-width: ${({theme}) => theme.media.desktop}) {
       ${getFontSize()};
@@ -24,6 +25,12 @@ const GlobalStyles = createGlobalStyle`
   h4,
   h5 {
     margin: 0;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 `
 
