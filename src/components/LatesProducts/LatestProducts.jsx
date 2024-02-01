@@ -1,17 +1,33 @@
+import styled from 'styled-components'
 import Section from '../Section/Section'
 import ProductList from '../ProductList/ProductList'
 import products from '../../data.json'
 import Container from '../Container/Container'
+import ProductSlider from '../ProductSlider/ProductSlider'
+
+const StyledLatestProducts = styled(Section)`
+  .products-container {
+    display: none;
+  }
+  
+  @media ${({theme}) => theme.media.tablet} {
+    .products-container {
+      display: block;
+    }
+  }
+`
 
 const LatestProducts = () => {
   return (
-    <Section>
+    <StyledLatestProducts>
       <Container>
         <h2>Explore our latest drops</h2>
-        Some products will be here...
+      </Container>
+      <Container className="products-container">
         <ProductList products={products}/>
       </Container>
-    </Section>
+      <ProductSlider products={products}/>
+    </StyledLatestProducts>
   )
 }
 
