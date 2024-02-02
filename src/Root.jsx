@@ -1,0 +1,32 @@
+import React from 'react'
+import {ThemeProvider} from 'styled-components'
+import GlobalStyles from './components/styles/GlobalStyles'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import {Outlet} from 'react-router-dom'
+
+const theme = {
+  mainColor: '#67696e',
+  secondaryColor: '#201b21',
+  buttonHoverBg: 'rgba(32, 27, 33, .7)',
+  footerBg: '#201b21',
+  media: {
+    desktop: '(min-width: 1116px)',
+    tablet: '(min-width: 575px)',
+  }
+}
+
+const Root = () => (
+  <ThemeProvider theme={theme}>
+    <React.StrictMode>
+      <GlobalStyles/>
+      <Header/>
+      <main>
+        <Outlet/>
+      </main>
+      <Footer/>
+    </React.StrictMode>
+  </ThemeProvider>
+)
+
+export default Root

@@ -9,10 +9,17 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   
+  html {
+    width: 100%;
+    height: 100%;
+  }
+  
   body {
     ${inter.getRegular()};
     ${getFontSize({size: 16, lineHeight: 20})};
     background: #fff;
+    height: 100%;
+    min-height: 100vh;
     
     @media (min-width: ${({theme}) => theme.media.desktop}) {
       ${getFontSize()};
@@ -31,6 +38,13 @@ const GlobalStyles = createGlobalStyle`
     display: block;
     max-width: 100%;
     height: auto;
+  }
+  
+  #root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 `
 
