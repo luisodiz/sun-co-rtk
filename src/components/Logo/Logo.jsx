@@ -1,11 +1,14 @@
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 import {inter, getFontSize} from '../styles/mixins'
-import LogoIcon from '../../assets/img/logo-icon.svg?react';
+import LogoIcon from '../../assets/img/logo-icon.svg?react'
 
-const StyledLogo = styled.a`
+const StyledLogo = styled(Link).attrs(() => ({to: '/'}))`
   display: inline-flex;
   align-items: center;
-  color: ${({theme, version}) => version === 'light' ? '#fff' : theme.secondaryColor};
+  color: ${({theme, version}) => version === 'light'
+    ? '#fff'
+    : theme.secondaryColor};
   text-decoration: none;
 
   span {

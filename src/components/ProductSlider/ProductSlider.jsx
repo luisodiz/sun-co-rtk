@@ -108,6 +108,7 @@ const ProductSlider = ({products, ...props}) => {
           products.map(({id, preview, title, description, price}) => (
             <SwiperSlide key={id}>
               <Card
+                id={id}
                 img={preview}
                 title={title}
                 description={description}

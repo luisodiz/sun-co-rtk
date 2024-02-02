@@ -8,7 +8,7 @@ const StyledSocials = styled.ul`
   display: inline-flex;
   margin: 0;
   padding: 0;
-  
+
   li {
     flex-shrink: 0;
     margin-right: 16px;
@@ -34,7 +34,7 @@ const StyledSocials = styled.ul`
     a {
       &:hover {
         background: #ec5e2a;
-      } 
+      }
     }
   }
 `
@@ -43,17 +43,17 @@ const Socials = (props) => {
   return (
     <StyledSocials {...props}>
       <li>
-        <a href="#">
+        <a href="https://www.instagram.com/" target="_blank">
           <img src={InstagramIcon} alt="Instagram icon"/>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="https://www.twitter.com/" target="_blank">
           <img src={TwitterIcon} alt="Twitter icon"/>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="https://www.youtube.com/" target="_blank">
           <img src={YoutubeIcon} alt="Youtube icon"/>
         </a>
       </li>

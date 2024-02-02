@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 import {dmSans, inter, getFontSize} from '../styles/mixins'
+import {Link} from 'react-router-dom'
 
-const StyledCard = styled.article`
-  a {
-    display: block;
-    overflow: hidden;
-    border-radius: 18px;
-    background: #f6f6f6;
-    margin-bottom: 18px;
-  }
+const StyledLinkWithImage = styled(Link)`
+  display: block;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #f6f6f6;
+  margin-bottom: 18px;
 
   img {
     object-fit: contain;
@@ -17,13 +16,28 @@ const StyledCard = styled.article`
     object-position: center center;
   }
 
-  .info {
-    h3 {
-      ${dmSans.getBold()};
-      ${getFontSize({size: 16, lineHeight: 18})};
-      margin-bottom: 6px;
+  @media ${({theme}) => theme.media.tablet} {
+    img {
+      height: 284px;
     }
+  }
+`
 
+const StyledLinkTitle = styled(Link)`
+  display: block;
+  ${dmSans.getBold()};
+  ${getFontSize({size: 16, lineHeight: 18})};
+  text-decoration: none;
+  color: ${({theme}) => theme.secondaryColor};
+  margin-bottom: 6px;
+
+  @media ${({theme}) => theme.media.desktop} {
+    ${getFontSize({size: 20, lineHeight: 24})};
+  }
+`
+
+const StyledCard = styled.article`
+  .info {
     p {
       ${inter.getRegular()};
       ${getFontSize({size: 14, lineHeight: 18})};
@@ -37,18 +51,8 @@ const StyledCard = styled.article`
     }
   }
 
-  @media ${({theme}) => theme.media.tablet} {
-    img {
-      height: 284px;
-    }
-  }
-  
   @media ${({theme}) => theme.media.desktop} {
     .info {
-      h3 {
-        ${getFontSize({size: 20, lineHeight: 24})};
-      }
-
       p {
         ${getFontSize({size: 16, lineHeight: 20})};
       }
@@ -56,14 +60,14 @@ const StyledCard = styled.article`
   }
 `
 
-const Card = ({img, title, description, price, ...props}) => {
+const Card = ({id, img, title, description, price, ...props}) => {
   return (
     <StyledCard {...props}>
-      <a href="#">
+      <StyledLinkWithImage to={`products/${id}`}>
         <img src={img} alt="Nike"/>
-      </a>
+      </StyledLinkWithImage>
       <div className="info">
-        <h3>{title}</h3>
+        <StyledLinkTitle to={`products/${id}`}>{title}</StyledLinkTitle>
         <p>{description}</p>
         <span>${price}</span>
       </div>

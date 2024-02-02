@@ -1,8 +1,13 @@
+import {useParams} from 'react-router-dom'
+import Container from '../../components/Container/Container'
+
 const DetailsPage = () => {
+  const {id} = useParams()
+
   return (
-    <>
-      Details
-    </>
+    <Container>
+      Details of product with id = {id}
+    </Container>
   )
 }
 
