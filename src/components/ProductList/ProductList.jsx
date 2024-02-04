@@ -9,6 +9,7 @@ const StyledProductList = styled.div`
   }
 
   .col {
+    width: 100%;
     flex: 0 0 100%;
     margin-bottom: 24px;
   }
@@ -16,12 +17,14 @@ const StyledProductList = styled.div`
 
   @media ${({theme}) => theme.media.tablet} {
     .col {
+      width: 50%;
       flex: 0 0 50%;
     }
   }
 
   @media ${({theme}) => theme.media.desktop} {
     .col {
+      width: 25%;
       flex: 0 0 25%;
     }
   }

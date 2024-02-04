@@ -3,13 +3,13 @@ import Section from '../Section/Section'
 import ProductList from '../ProductList/ProductList'
 import products from '../../data.json'
 import Container from '../Container/Container'
-import ProductSlider from '../ProductSlider/ProductSlider'
+import ProductsSlider from '../ProductsSlider/ProductsSlider'
 
 const StyledLatestProducts = styled(Section)`
   .products-container {
     display: none;
   }
-  
+
   @media ${({theme}) => theme.media.tablet} {
     .products-container {
       display: block;
@@ -26,7 +26,7 @@ const LatestProducts = () => {
       <Container className="products-container">
         <ProductList products={products}/>
       </Container>
-      <ProductSlider products={products}/>
+      <ProductsSlider products={products}/>
     </StyledLatestProducts>
   )
 }

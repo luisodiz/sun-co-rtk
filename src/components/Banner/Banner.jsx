@@ -5,6 +5,10 @@ import ButtonLarge from '../Button/ButtonLarge'
 import Arrow from '../../assets/img/arrow-right.svg?react'
 import Container from '../Container/Container'
 
+const StyledSection = styled(Section)`
+  padding-top: 0;
+`
+
 const StyledBanner = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,7 +98,7 @@ const StyledBanner = styled.div`
 
 const Banner = () => {
   return (
-    <Section>
+    <StyledSection>
       <Container>
         <StyledBanner>
           <div className="banner-left">
@@ -112,7 +116,7 @@ const Banner = () => {
           </div>
         </StyledBanner>
       </Container>
-    </Section>
+    </StyledSection>
   )
 }
 

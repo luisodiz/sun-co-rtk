@@ -6,7 +6,6 @@ import Chevron from '../../assets/img/chevron-right.svg?react'
 import {useSwiper} from 'swiper/react'
 
 import 'swiper/css'
-import 'swiper/css/navigation'
 
 const StyledChevron = styled(Chevron)`
   width: 24px;
@@ -49,7 +48,7 @@ const StyledNav = styled.div`
   }
 `
 
-const StyledProductSlider = styled.div`
+const StyledProductsSlider = styled.div`
   .swiper {
     padding: 0 15px;
   }
@@ -96,9 +95,9 @@ const Nav = () => {
   )
 }
 
-const ProductSlider = ({products, ...props}) => {
+const ProductsSlider = ({products, ...props}) => {
   return (
-    <StyledProductSlider>
+    <StyledProductsSlider>
       <Swiper
         spaceBetween={16}
         slidesPerView="auto"
@@ -118,8 +117,8 @@ const ProductSlider = ({products, ...props}) => {
           ))}
         <Nav/>
       </Swiper>
-    </StyledProductSlider>
+    </StyledProductsSlider>
   )
 }
 
-export default ProductSlider
+export default ProductsSlider
