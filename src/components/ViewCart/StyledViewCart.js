@@ -6,6 +6,7 @@ export const StyledViewCart = styled(StyledButton)`
   background: transparent;
   border: 1px solid ${({theme}) => theme.primaryColor};
   color: ${({theme}) => theme.secondaryColor};
+  text-decoration: none;
 
   span {
     display: inline-flex;

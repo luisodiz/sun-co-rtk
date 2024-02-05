@@ -34,11 +34,11 @@ const CartPage = () => {
   return (
     <StyledCartPage>
       <Row>
-        <Col>
+        <Col className="your-bag">
           <StyledPageTitle>Your Bag</StyledPageTitle>
           <CartProductList products={data}/>
         </Col>
-        <Col>
+        <Col className="your-summary">
           <BlockInfo>
             <StyledBlockInfoTitle>Summary</StyledBlockInfoTitle>
             <StyledBlockInfoItem>
