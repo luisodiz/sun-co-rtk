@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {inter, dmSans, getFontSize} from '../styles/mixins'
 import Section from '../Section/Section'
-import ButtonLarge from '../Button/ButtonLarge'
+import {StyledButtonLarge} from '../Button/StyledButton'
 import Arrow from '../../assets/img/arrow-right.svg?react'
 import Container from '../Container/Container'
 
@@ -106,10 +106,10 @@ const Banner = () => {
             <h3 className="banner-title">Summer Sale</h3>
             <span
               className="banner-desc">Discover our summer styles with discount</span>
-            <ButtonLarge $hasIcon className="button">
+            <StyledButtonLarge $hasIcon className="button">
               <span>Shop Now</span>
               <Arrow/>
-            </ButtonLarge>
+            </StyledButtonLarge>
           </div>
           <div className="banner-right">
             <img src="./img/banner.png" alt="Кроссовки Nike"/>
