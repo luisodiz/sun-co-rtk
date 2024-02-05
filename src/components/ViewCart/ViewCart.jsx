@@ -1,4 +1,4 @@
-import {useRef, useEffect} from 'react'
+import {useRef} from 'react'
 import {StyledViewCart} from './StyledViewCart'
 import CartIcon from '../../assets/img/cart-icon.svg?react'
 import {Link} from 'react-router-dom'
