@@ -14,6 +14,8 @@ import CartPage from './pages/CartPage/CartPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import {Provider} from 'react-redux'
 import {store} from './app/store'
+import axios from 'axios'
+import {fetchAllProducts} from './features/products/productsSlice'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +28,8 @@ const router = createBrowserRouter(
     </Route>
   )
 )
+
+store.dispatch(fetchAllProducts())
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
