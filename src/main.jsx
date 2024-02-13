@@ -12,6 +12,8 @@ import ProductsPage from './pages/ProductsPage/ProductsPage'
 import DetailsPage from './pages/DetailsPage/DetailsPage'
 import CartPage from './pages/CartPage/CartPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
+import {Provider} from 'react-redux'
+import {store} from './app/store'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,5 +28,7 @@ const router = createBrowserRouter(
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}></RouterProvider>
+  <Provider store={store}>
+    <RouterProvider router={router}></RouterProvider>
+  </Provider>
 )
