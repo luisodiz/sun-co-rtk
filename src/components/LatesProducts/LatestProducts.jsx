@@ -5,18 +5,6 @@ import products from '../../data.json'
 import Container from '../Container/Container'
 import ProductsSlider from '../ProductsSlider/ProductsSlider'
 
-const StyledLatestProducts = styled(Section)`
-  .products-container {
-    display: none;
-  }
-
-  @media ${({theme}) => theme.media.tablet} {
-    .products-container {
-      display: block;
-    }
-  }
-`
-
 const LatestProducts = () => {
   return (
     <StyledLatestProducts>
@@ -32,3 +20,15 @@ const LatestProducts = () => {
 }
 
 export default LatestProducts
+
+const StyledLatestProducts = styled(Section)`
+  .products-container {
+    display: none;
+  }
+
+  @media ${props => props.theme.media.tablet} {
+    .products-container {
+      display: block;
+    }
+  }
+`

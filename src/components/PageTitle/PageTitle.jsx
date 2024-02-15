@@ -1,7 +1,15 @@
 import styled from 'styled-components'
 import {dmSans, getFontSize} from '../styles/mixins'
 
-export const StyledPageTitle = styled.h1`
+const PageTitle = (props) => {
+  return (
+    <StyledPageTitle {...props}/>
+  )
+}
+
+export default PageTitle
+
+const StyledPageTitle = styled.h1`
   ${dmSans.getBold()};
   ${getFontSize({size: 28, lineHeight: 36})};
   color: ${props => props.theme.secondaryColor};

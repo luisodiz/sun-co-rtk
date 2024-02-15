@@ -1,119 +1,29 @@
 import styled from 'styled-components'
 import {inter, dmSans, getFontSize} from '../styles/mixins'
+
 import Section from '../Section/Section'
-import {StyledButtonLarge} from '../Button/StyledButton'
+import Button from '../Button/Button'
 import Arrow from '../../assets/img/arrow-right.svg?react'
 import Container from '../Container/Container'
-
-const StyledSection = styled(Section)`
-  padding-top: 0;
-`
-
-const StyledBanner = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: #eaeeef;
-  border-radius: 40px;
-  padding: 32px 24px 40px;
-
-  .banner-right {
-    order: 0;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .banner-left {
-    order: 1;
-    text-align: center;
-  }
-
-  .banner-sale {
-    display: block;
-    ${dmSans.getBold()};
-    ${getFontSize({size: 36, lineHeight: 42})};
-    color: #ec5e2a;
-  }
-
-  .banner-title {
-    margin-bottom: 20px;
-    ${dmSans.getBold()};
-    ${getFontSize({size: 48, lineHeight: 54})};
-    color: ${({theme}) => theme.secondaryColor};
-  }
-
-  .banner-desc {
-    display: block;
-    ${inter.getRegular()};
-    ${getFontSize({size: 14, lineHeight: 20})};
-    color: ${({theme}) => theme.mainColor};
-    margin-bottom: 36px;
-  }
-
-  img {
-    height: 140px;
-  }
-
-  @media ${({theme}) => theme.media.tablet} {
-    .button {
-      max-width: 283px;
-    }
-  }
-
-  @media ${({theme}) => theme.media.desktop} {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 53px 64px;
-
-    .banner-right {
-      order: 1;
-      margin-bottom: 0;
-    }
-
-    .banner-left {
-      order: 0;
-      text-align: left;
-    }
-
-    .banner-sale {
-      ${getFontSize({size: 48, lineHeight: 56})};
-      margin-bottom: 8px;
-    }
-
-    .banner-title {
-      ${getFontSize({size: 64, lineHeight: 73})};
-    }
-
-    .banner-desc {
-      ${getFontSize({size: 20, lineHeight: 30})};
-      margin-bottom: 48px;
-    }
-
-    img {
-      height: 321px;
-    }
-  }
-`
+import Flex from '../Flex/Flex'
 
 const Banner = () => {
   return (
     <StyledSection>
       <Container>
         <StyledBanner>
-          <div className="banner-left">
-            <span className="banner-sale">25% OFF</span>
-            <h3 className="banner-title">Summer Sale</h3>
-            <span
-              className="banner-desc">Discover our summer styles with discount</span>
-            <StyledButtonLarge $hasIcon className="button">
-              <span>Shop Now</span>
-              <Arrow/>
-            </StyledButtonLarge>
-          </div>
-          <div className="banner-right">
-            <img src="./img/banner.png" alt="Кроссовки Nike"/>
-          </div>
+          <StyledLeftColumn>
+            <StyledSale>25% OFF</StyledSale>
+            <StyledTitle>Summer Sale</StyledTitle>
+            <StyledDesc>Discover our summer styles with discount</StyledDesc>
+            <StyledButton isLarge>
+              Shop Now
+              <Arrow className="icon"/>
+            </StyledButton>
+          </StyledLeftColumn>
+          <StyledRightColumn>
+            <StyledImg src="/img/banner.png" alt=""/>
+          </StyledRightColumn>
         </StyledBanner>
       </Container>
     </StyledSection>
@@ -121,3 +31,99 @@ const Banner = () => {
 }
 
 export default Banner
+
+const StyledSection = styled(Section)`
+  padding-top: 0;
+`
+
+const StyledBanner = styled(Flex)`
+  background: #eaeeef;
+  border-radius: 40px;
+  padding: 32px 24px 40px;
+  flex-direction: column;
+
+  @media ${props => props.theme.media.desktop} {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 53px 64px;
+
+  }
+`
+
+const StyledLeftColumn = styled.div`
+  width: 100%;
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media ${props => props.theme.media.desktop} {
+    width: 50%;
+    order: 0;
+    align-items: flex-start;
+  }
+`
+
+const StyledRightColumn = styled.div`
+  width: 100%;
+  order: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  @media ${props => props.theme.media.desktop} {
+    width: 50%;
+    order: 1;
+    margin-bottom: 0;
+  }
+`
+
+const StyledSale = styled.p`
+  margin: 0;
+  ${dmSans.getBold()};
+  ${getFontSize({size: 36, lineHeight: 42})};
+  color: #ec5e2a;
+
+  @media ${props => props.theme.media.desktop} {
+    ${getFontSize({size: 48, lineHeight: 56})};
+    margin-bottom: 8px;
+  }
+`
+
+const StyledTitle = styled.h3`
+  margin-bottom: 20px;
+  ${dmSans.getBold()};
+  ${getFontSize({size: 48, lineHeight: 54})};
+  color: ${props => props.theme.secondaryColor};
+
+  @media ${props => props.theme.media.desktop} {
+    ${getFontSize({size: 64, lineHeight: 73})};
+  }
+`
+
+const StyledDesc = styled.p`
+  ${inter.getRegular()};
+  ${getFontSize({size: 14, lineHeight: 20})};
+  color: ${props => props.theme.mainColor};
+  margin: 0 0 36px;
+
+  @media ${props => props.theme.media.desktop} {
+    ${getFontSize({size: 20, lineHeight: 30})};
+    margin-bottom: 48px;
+  }
+`
+
+const StyledButton = styled(Button)`
+  @media ${props => props.theme.media.tablet} {
+    max-width: 283px;
+  }
+`
+
+const StyledImg = styled.img`
+  height: 140px;
+
+  @media ${props => props.theme.media.desktop} {
+    height: 321px;
+  }
+`

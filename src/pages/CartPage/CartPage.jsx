@@ -1,17 +1,11 @@
-import {StyledCartPage} from './StyledCartPage'
+import styled from 'styled-components'
+
+import Container from '../../components/Container/Container'
 import Row from '../../components/Row/Row'
 import Col from '../../components/Col/Col'
-import {StyledPageTitle} from '../../components/PageTitle/StyledPageTitle'
-import {StyledCardPrice} from '../../components/Card/StyledCard'
+import PageTitle from '../../components/PageTitle/PageTitle'
 import CartProductList from '../../components/CartProductList/CartProductList'
-import BlockInfo from '../../components/BlockInfo/BlockInfo'
-import {
-  StyledBlockInfoTitle,
-  StyledBlockInfoItem,
-  StyledBlockInfoList
-} from '../../components/BlockInfo/StyledBlockInfo'
-import {StyledButtonLarge} from '../../components/Button/StyledButton'
-import Arrow from '../../assets/img/arrow-right.svg?react'
+import CartSummary from '../../components/CartSummary/CartSummary'
 
 const data = [
   {
@@ -32,54 +26,56 @@ const data = [
 
 const CartPage = () => {
   return (
-    <StyledCartPage>
-      <Row>
-        <Col className="your-bag">
-          <StyledPageTitle>Your Bag</StyledPageTitle>
+    <Container>
+      <StyledRow>
+        <StyledCol className="bag">
+          <PageTitle>Your Bag</PageTitle>
           <CartProductList products={data}/>
-        </Col>
-        <Col className="your-summary">
-          <BlockInfo>
-            <StyledBlockInfoTitle>Summary</StyledBlockInfoTitle>
-            <StyledBlockInfoItem>
-              <StyledBlockInfoList>
-                <li>
-                  <span>Subtotal</span>
-                  <StyledCardPrice>$90.00</StyledCardPrice>
-                </li>
-                <li>
-                  <span>Shipping and delivery</span>
-                  <StyledCardPrice>$20.00</StyledCardPrice>
-                </li>
-                <li>
-                  <span>Tax</span>
-                  <StyledCardPrice>$6.00</StyledCardPrice>
-                </li>
-                <li>
-                  <span>Discount</span>
-                  <StyledCardPrice color="#EC5E2A">$-6.00</StyledCardPrice>
-                </li>
-              </StyledBlockInfoList>
-            </StyledBlockInfoItem>
-            <StyledBlockInfoItem>
-              <StyledBlockInfoList>
-                <li>
-                  <span className="total">Total </span>
-                  <StyledCardPrice>$164.46</StyledCardPrice>
-                </li>
-              </StyledBlockInfoList>
-              <div className="end">
-                <StyledButtonLarge $hasIcon>
-                  <span>Checkout</span>
-                  <Arrow/>
-                </StyledButtonLarge>
-              </div>
-            </StyledBlockInfoItem>
-          </BlockInfo>
-        </Col>
-      </Row>
-    </StyledCartPage>
+        </StyledCol>
+        <StyledCol className="summary">
+          <CartSummary/>
+        </StyledCol>
+      </StyledRow>
+    </Container>
   )
 }
 
 export default CartPage
+
+const StyledRow = styled(Row)`
+  margin: 0 -12px;
+
+  @media ${props => props.theme.media.desktop} {
+    margin: 0 -21px;
+  }
+`
+
+const StyledCol = styled(Col)`
+  padding: 0 12px;
+  width: 100%;
+  flex: 0 0 100%;
+
+  &.bag {
+    order: 1;
+  }
+
+  &.summary {
+    order: 0;
+    margin-bottom: 48px;
+  }
+
+  @media ${props => props.theme.media.desktop} {
+    padding: 0 21px;
+    width: 50%;
+    flex: 0 0 50%;
+
+    &.bag {
+      order: 0;
+    }
+
+    &.summary {
+      order: 1;
+      margin-bottom: 0;
+    }
+  }
+`

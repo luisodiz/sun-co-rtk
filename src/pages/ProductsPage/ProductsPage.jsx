@@ -1,8 +1,10 @@
+import Container from '../../components/Container/Container'
+
 const ProductsPage = () => {
   return (
-    <>
-     Products page
-    </>
+    <Container>
+      Products page
+    </Container>
   )
 }
 

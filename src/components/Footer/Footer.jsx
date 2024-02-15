@@ -8,35 +8,35 @@ const StyledFooter = styled.footer`
   margin-top: auto;
   background: ${({theme}) => theme.footerBg};
   padding: 24px 0;
-  
+
   .wrapper {
     display: flex;
     flex-direction: column;
-    
+
     &-mobile {
       display: flex;
       justify-content: space-between;
       margin-bottom: 20px;
     }
   }
-  
+
   span {
     ${inter.getRegular()};
     ${getFontSize({size: 12, lineHeight: 18})};
     color: #d9dbe1;
     max-width: 167px;
   }
-  
+
   .logo-desktop,
   .socials-desktop {
     display: none;
   }
-  
+
   @media ${({theme}) => theme.media.tablet} {
     .wrapper {
       flex-direction: row;
       justify-content: space-between;
-      
+
       &-mobile {
         display: none;
       }
@@ -59,7 +59,7 @@ const Footer = () => {
     <StyledFooter>
       <Container className="wrapper">
         <div className="wrapper-mobile">
-          <Logo version="light" href="#"/>
+          <Logo version="light"/>
           <Socials/>
         </div>
         <Logo version="light" href="#" className="logo-desktop"/>
