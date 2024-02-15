@@ -3,26 +3,26 @@ import Logo from '../Logo/Logo'
 import Container from '../Container/Container'
 import ViewCart from '../ViewCart/ViewCart'
 
-const StyledHeader = styled.header`
-  padding: 12px 0;
-  border-bottom: 1px solid #e9ebee;
-  margin-bottom: 30px;
-
-  .line {
-    display: flex;
-    justify-content: space-between;
-  }
-`
-
 const Header = () => {
   return (
     <StyledHeader>
-      <Container className="line">
-        <Logo href="#"/>
+      <StyledContainer>
+        <Logo/>
         <ViewCart/>
-      </Container>
+      </StyledContainer>
     </StyledHeader>
   )
 }
 
 export default Header
+
+const StyledHeader = styled.header`
+  padding: 12px 0;
+  border-bottom: 1px solid #e9ebee;
+  margin-bottom: 30px;
+`
+
+const StyledContainer = styled(Container)`
+  display: flex;
+  justify-content: space-between;
+`

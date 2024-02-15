@@ -1,11 +1,40 @@
 import styled from 'styled-components'
 import {useState, useEffect} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
-import Card from '../Card/Card'
-import Chevron from '../../assets/img/chevron-right.svg?react'
 import {useSwiper} from 'swiper/react'
 
+import Chevron from '../../assets/img/chevron-right.svg?react'
+import Card from '../Card/Card'
+
 import 'swiper/css'
+
+const ProductsSlider = ({products, ...props}) => {
+  return (
+    <StyledProductsSlider>
+      <Swiper
+        spaceBetween={16}
+        slidesPerView="auto"
+        {...props}
+      >
+        {products?.length > 0 &&
+          products.map(({id, preview, title, description, price}) => (
+            <SwiperSlide key={id}>
+              <Card
+                id={id}
+                img={preview}
+                title={title}
+                description={description}
+                price={price}
+              />
+            </SwiperSlide>
+          ))}
+        <Nav/>
+      </Swiper>
+    </StyledProductsSlider>
+  )
+}
+
+export default ProductsSlider
 
 const StyledChevron = styled(Chevron)`
   width: 24px;
@@ -94,31 +123,3 @@ const Nav = () => {
     </StyledNav>
   )
 }
-
-const ProductsSlider = ({products, ...props}) => {
-  return (
-    <StyledProductsSlider>
-      <Swiper
-        spaceBetween={16}
-        slidesPerView="auto"
-        {...props}
-      >
-        {products?.length > 0 &&
-          products.map(({id, preview, title, description, price}) => (
-            <SwiperSlide key={id}>
-              <Card
-                id={id}
-                img={preview}
-                title={title}
-                description={description}
-                price={price}
-              />
-            </SwiperSlide>
-          ))}
-        <Nav/>
-      </Swiper>
-    </StyledProductsSlider>
-  )
-}
-
-export default ProductsSlider
