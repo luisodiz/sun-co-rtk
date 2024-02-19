@@ -5,7 +5,7 @@
 - Дизайн макета имеет лицензию [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - Ссылка на автора: https://www.figma.com/@dotcards
 
-Интернет-магазин обуви с использованием **React && Redux Toolkit**.
+Интернет-магазин с использованием **React && Redux Toolkit**.
 Проект был написан с использованием **Styled Components**
 
 Для запуска проекта необходимо выполнить следующие команды:
