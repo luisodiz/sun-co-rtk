@@ -1,0 +1,63 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "preview": "/img/preview.jpg",
+      "title": "Off-White",
+      "subtitle": "Out Of Office \"Ooo\" sneakers",
+      "price": 775,
+      "discount": 15,
+      "details": {
+        "images": [
+          "/img/detail-img.jpg",
+          "/img/detail-img.jpg",
+          "/img/detail-img.jpg",
+          "/img/detail-img.jpg"
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "preview": "/img/nike/air-force/1/main.jpg",
+      "title": "Nike air force 1 mid 07 lv8 red",
+      "subtitle": "Air Force 1 Mid 07 LV8 Red",
+      "price": 650,
+      "discount": 10,
+      "details": {
+        "images": [
+          "/img/nike/air-force/1/slide1.jpg",
+          "/img/nike/air-force/1/slide2.jpg",
+          "/img/nike/air-force/1/slide3.jpg"
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "preview": "/img/nike/air-force/2/main.jpg",
+      "title": "Nike air force 1 mid 07 lv8 utility",
+      "subtitle": "Air Force 1 Mid 07 LV8 Utility",
+      "price": 270,
+      "details": {
+        "images": [
+          "/img/nike/air-force/2/slide1.jpg",
+          "/img/nike/air-force/2/slide2.jpg"
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "preview": "/img/preview2.jpg",
+      "title": "Adidas",
+      "subtitle": "DAILY 3.0 SHOES",
+      "price": 200,
+      "details": {
+        "images": [
+          "/img/detail-img.jpg",
+          "/img/detail-img.jpg",
+          "/img/detail-img.jpg",
+          "/img/detail-img.jpg"
+        ]
+      }
+    }
+  ]
+}

@@ -18,14 +18,12 @@ const theme = {
 
 const Root = () => (
   <ThemeProvider theme={theme}>
-    <React.StrictMode>
-      <GlobalStyles/>
-      <Header/>
-      <main>
-        <Outlet/>
-      </main>
-      <Footer/>
-    </React.StrictMode>
+    <GlobalStyles/>
+    <Header/>
+    <main>
+      <Outlet/>
+    </main>
+    <Footer/>
   </ThemeProvider>
 )
 

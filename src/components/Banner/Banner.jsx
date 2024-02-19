@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import {inter, dmSans, getFontSize} from '../styles/mixins'
+import {Link} from 'react-router-dom'
 
 import Section from '../Section/Section'
-import Button from '../Button/Button'
 import Arrow from '../../assets/img/arrow-right.svg?react'
+import Button from '../Button/Button'
 import Container from '../Container/Container'
 import Flex from '../Flex/Flex'
 
@@ -16,10 +17,10 @@ const Banner = () => {
             <StyledSale>25% OFF</StyledSale>
             <StyledTitle>Summer Sale</StyledTitle>
             <StyledDesc>Discover our summer styles with discount</StyledDesc>
-            <StyledButton isLarge>
+            <Button as={StyledButton} to="/products" isLarge>
               Shop Now
               <Arrow className="icon"/>
-            </StyledButton>
+            </Button>
           </StyledLeftColumn>
           <StyledRightColumn>
             <StyledImg src="/img/banner.png" alt=""/>
@@ -114,7 +115,7 @@ const StyledDesc = styled.p`
   }
 `
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(Link)`
   @media ${props => props.theme.media.tablet} {
     max-width: 283px;
   }

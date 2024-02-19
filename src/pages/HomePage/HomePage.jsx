@@ -1,5 +1,5 @@
 import Banner from '../../components/Banner/Banner'
-import LatestProducts from '../../components/LatesProducts/LatestProducts'
+import LatestProducts from '../../features/products/LatestProducts'
 
 const HomePage = () => {
   return (

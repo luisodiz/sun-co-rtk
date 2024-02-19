@@ -24,6 +24,7 @@ const StyledButton = styled.button`
   min-width: 142px;
   padding: 10px 24px;
   border-radius: 10px;
+  text-decoration: none;
   cursor: pointer;
   transition: all .24s;
 
@@ -31,8 +32,7 @@ const StyledButton = styled.button`
     ${getFontSize({size: 16, lineHeight: 20})};
     padding: 8px 24px;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background: ${props => props.theme.buttonHoverBg};
     }
   }
