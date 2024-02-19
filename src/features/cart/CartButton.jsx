@@ -1,27 +1,30 @@
-import {useRef} from 'react'
+import {useSelector} from 'react-redux'
 import styled from 'styled-components'
+
 import {Link} from 'react-router-dom'
-import {getFontSize, inter} from '../styles/mixins'
+import {getFontSize, inter} from '../../components/styles/mixins'
 import CartIcon from '../../assets/img/cart-icon.svg?react'
 
-const ViewCart = (props) => {
-  const buttonRef = useRef()
+import {selectTotalCountCartItems} from './cartSlice'
+
+const CartButton = (props) => {
+  const items = useSelector(selectTotalCountCartItems)
 
   return (
-    <StyledViewCart
+    <StyledCartButton
       to="/cart"
-      ref={buttonRef}
-      onClick={() => buttonRef.current.blur()}
       {...props}
     >
       <StyledIcon/>
       View Cart
-      <StyledQuantity>22</StyledQuantity>
-    </StyledViewCart>
+      {items > 0
+        ? <StyledQuantity>{items}</StyledQuantity>
+        : null}
+    </StyledCartButton>
   )
 }
 
-export default ViewCart
+export default CartButton
 
 const StyledQuantity = styled.span`
   display: inline-flex;
@@ -53,7 +56,7 @@ const StyledIcon = styled(CartIcon)`
   }
 `
 
-const StyledViewCart = styled(Link)`
+const StyledCartButton = styled(Link)`
   display: inline-flex;
   justify-content: center;
   align-items: center;

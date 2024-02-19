@@ -6,6 +6,44 @@ import Chevron from '../../assets/img/chevron-right.svg?react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
+const SliderNavigation = ({slidesCount}) => {
+  const swiper = useSwiper()
+  const [isPrevDisabled, setIsPrevDisabled] = useState(swiper.isBeginning)
+  const [isNextDisabled, setIsNextDisabled] = useState(swiper.isEnd)
+
+  const handleSlideChange = () => {
+    setIsPrevDisabled(swiper.isBeginning)
+    setIsNextDisabled(swiper.isEnd)
+  }
+
+  useEffect(() => {
+    swiper.on('snapIndexChange', handleSlideChange)
+    return () => swiper.off('snapIndexChange', handleSlideChange)
+  }, [swiper])
+
+  if (slidesCount < 2) {
+    return null
+  }
+
+  return (
+    <>
+      <NavButton
+        $isPrev
+        className={isPrevDisabled ? 'disabled' : ''}
+        onClick={() => swiper.slidePrev()}
+      >
+        <Chevron/>
+      </NavButton>
+      <NavButton
+        className={isNextDisabled ? 'disabled' : ''}
+        onClick={() => swiper.slideNext()}
+      >
+        <Chevron/>
+      </NavButton>
+    </>
+  )
+}
+
 const NavButton = styled.button`
   border: none;
   cursor: pointer;
@@ -34,7 +72,6 @@ const NavButton = styled.button`
   }};
 
   &.disabled {
-    pointer-events: none;
     background: #fbfbfb;
 
     svg {
@@ -49,40 +86,6 @@ const NavButton = styled.button`
     fill: ${({theme}) => theme.secondaryColor};
   }
 `
-
-const SliderNavigation = () => {
-  const swiper = useSwiper()
-  const [isPrevDisabled, setIsPrevDisabled] = useState(swiper.isBeginning)
-  const [isNextDisabled, setIsNextDisabled] = useState(swiper.isEnd)
-
-  const handleSlideChange = () => {
-    setIsPrevDisabled(swiper.isBeginning)
-    setIsNextDisabled(swiper.isEnd)
-  }
-
-  useEffect(() => {
-    swiper.on('snapIndexChange', handleSlideChange)
-    return () => swiper.off('snapIndexChange', handleSlideChange)
-  }, [swiper])
-
-  return (
-    <>
-      <NavButton
-        $isPrev
-        className={isPrevDisabled ? 'disabled' : ''}
-        onClick={() => swiper.slidePrev()}
-      >
-        <Chevron/>
-      </NavButton>
-      <NavButton
-        className={isNextDisabled ? 'disabled' : ''}
-        onClick={() => swiper.slideNext()}
-      >
-        <Chevron/>
-      </NavButton>
-    </>
-  )
-}
 
 const StyledDetailsSlider = styled(Swiper)`
   .img-wrapper {
@@ -138,9 +141,7 @@ const StyledDetailsSlider = styled(Swiper)`
   }
 `
 
-const DetailsSlider = ({product}) => {
-  const images = product.details.images
-
+const DetailsSlider = ({slides}) => {
   return (
     <StyledDetailsSlider
       spaceBetween={16}
@@ -151,7 +152,7 @@ const DetailsSlider = ({product}) => {
       }}
     >
       {
-        images.map((item, idx) => (
+        slides.map((item, idx) => (
           <SwiperSlide key={idx}>
             <div className="img-wrapper">
               <img src={item} alt=""/>
@@ -160,7 +161,7 @@ const DetailsSlider = ({product}) => {
         ))
       }
       <span slot="container-end" className="container-end">
-        <SliderNavigation/>
+        <SliderNavigation slidesCount={slides?.length || 0}/>
       </span>
     </StyledDetailsSlider>
   )

@@ -1,7 +1,11 @@
+import {useSelector} from 'react-redux'
 import styled from 'styled-components'
+
 import {Link} from 'react-router-dom'
-import {dmSans, getFontSize, inter} from '../styles/mixins'
-import Flex from '../Flex/Flex'
+import {dmSans, getFontSize, inter} from '../../components/styles/mixins'
+import Flex from '../../components/Flex/Flex'
+
+import {selectProductById} from './productsSlice'
 
 export const ImgWrapper = (props) => <StyledImgWrapper {...props}/>
 
@@ -11,11 +15,15 @@ export const Subtitle = (props) => <StyledSubtitle {...props}/>
 
 export const Price = (props) => <StyledPrice {...props}/>
 
-const Card = ({id, img, title, description, price}) => {
+const Card = ({productId}) => {
+  const product = useSelector(
+    state => selectProductById(state, productId))
+  const {id, preview, title, description, price} = product
+
   return (
     <article>
-      <ImgWrapper as={Link} to={`products/${id}`}>
-        <img src={img} alt="Nike"/>
+      <ImgWrapper as={Link} to={`/products/${id}`}>
+        <img src={preview} alt={title}/>
       </ImgWrapper>
       <Flex
         $direction="column"
@@ -23,7 +31,7 @@ const Card = ({id, img, title, description, price}) => {
       >
         <Title
           as={Link}
-          to={`products/${id}`}
+          to={`/products/${id}`}
         >
           {title}
         </Title>
@@ -37,7 +45,9 @@ const Card = ({id, img, title, description, price}) => {
 export default Card
 
 const StyledImgWrapper = styled.div`
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   border-radius: 18px;
   background: #f6f6f6;
@@ -45,7 +55,7 @@ const StyledImgWrapper = styled.div`
 
   img {
     object-fit: contain;
-    width: 100%;
+    width: 85%;
     height: 213px;
     object-position: center center;
   }

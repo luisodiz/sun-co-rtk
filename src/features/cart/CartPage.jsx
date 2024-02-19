@@ -1,41 +1,38 @@
+import {useSelector} from 'react-redux'
 import styled from 'styled-components'
 
 import Container from '../../components/Container/Container'
 import Row from '../../components/Row/Row'
 import Col from '../../components/Col/Col'
 import PageTitle from '../../components/PageTitle/PageTitle'
-import CartProductList from '../../components/CartProductList/CartProductList'
-import CartSummary from '../../components/CartSummary/CartSummary'
+import CartProductList from './CartProductList'
+import CartSummary from './CartSummary'
 
-const data = [
-  {
-    id: 1,
-    preview: '/img/preview.jpg',
-    title: 'Off-White',
-    description: 'Out Of Office "Ooo" sneakers',
-    price: 775,
-  },
-  {
-    id: 2,
-    preview: '/img/preview.jpg',
-    title: 'Off-White',
-    description: 'Out Of Office "Ooo" sneakers',
-    price: 775,
-  }
-]
+import {selectCartItemsIds} from './cartSlice'
 
 const CartPage = () => {
+  const cartItemsIds = useSelector(selectCartItemsIds)
+
+  if (cartItemsIds.length > 0) {
+    return (
+      <Container>
+        <StyledRow>
+          <StyledCol className="bag">
+            <PageTitle>Your Bag</PageTitle>
+            <CartProductList cartItemsIds={cartItemsIds}/>
+          </StyledCol>
+          <StyledCol className="summary">
+            <CartSummary/>
+          </StyledCol>
+        </StyledRow>
+      </Container>
+    )
+  }
+
   return (
     <Container>
-      <StyledRow>
-        <StyledCol className="bag">
-          <PageTitle>Your Bag</PageTitle>
-          <CartProductList products={data}/>
-        </StyledCol>
-        <StyledCol className="summary">
-          <CartSummary/>
-        </StyledCol>
-      </StyledRow>
+      <PageTitle>Cart</PageTitle>
+      <h3>Cart is empty. Please add products to the cart</h3>
     </Container>
   )
 }
@@ -44,6 +41,7 @@ export default CartPage
 
 const StyledRow = styled(Row)`
   margin: 0 -12px;
+  padding-bottom: 30px;
 
   @media ${props => props.theme.media.desktop} {
     margin: 0 -21px;

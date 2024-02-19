@@ -1,14 +1,35 @@
+import {useSelector} from 'react-redux'
 import styled from 'styled-components'
-import {dmSans, getFontSize} from '../styles/mixins'
+import {dmSans, getFontSize} from '../../components/styles/mixins'
+import {formatToUSD} from '../../utils/utils'
 
 import Summary, {
   Block,
   Title
-} from '../Summary/Summary'
-import Button from '../Button/Button'
+} from '../../components/Summary/Summary'
+import Button from '../../components/Button/Button'
 import Arrow from '../../assets/img/arrow-right.svg?react'
 
+import {selectAllCartItems} from './cartSlice'
+
 const CartSummary = () => {
+  const products = useSelector(selectAllCartItems)
+  // Простой расчет налога, без излишеств
+  const delivery = useSelector(state => state.cart.delivery)
+  const tax = useSelector(state => state.cart.tax)
+
+  const productsTotal = products.reduce(
+    (acc, product) => acc + product.totalPrice, 0)
+
+  const productsTotalDiscount = products.reduce((acc, product) => {
+    if (product.discountInUsd) {
+      return acc + product.discountInUsd
+    }
+    return acc
+  }, 0)
+
+  const total = productsTotal + delivery + tax
+
   return (
     <Summary>
       <StyledTitle>Summary</StyledTitle>
@@ -16,27 +37,34 @@ const CartSummary = () => {
         <StyledList>
           <li>
             <span>Subtotal</span>
-            <StyledPrice>$90.00</StyledPrice>
+            <StyledPrice>{formatToUSD(productsTotal)}</StyledPrice>
           </li>
           <li>
             <span>Shipping and delivery</span>
-            <StyledPrice>$20.00</StyledPrice>
+            <StyledPrice>{formatToUSD(delivery)}</StyledPrice>
           </li>
           <li>
             <span>Tax</span>
-            <StyledPrice>$6.00</StyledPrice>
+            <StyledPrice>{formatToUSD(tax)}</StyledPrice>
           </li>
-          <li>
-            <span>Discount</span>
-            <StyledPrice color="#EC5E2A">$-6.00</StyledPrice>
-          </li>
+          {
+            productsTotalDiscount
+              ? (
+                <li>
+                  <span>Discount</span>
+                  <StyledPrice color="#EC5E2A">$-{productsTotalDiscount.toFixed(
+                    2)}</StyledPrice>
+                </li>
+              )
+              : null
+          }
         </StyledList>
       </Block>
       <Block $noBorder>
         <StyledList>
           <li className="total">
             <span>Total</span>
-            <StyledPrice>$164.46</StyledPrice>
+            <StyledPrice>{formatToUSD(total)}</StyledPrice>
           </li>
         </StyledList>
       </Block>

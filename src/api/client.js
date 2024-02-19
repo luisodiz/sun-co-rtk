@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const BASE_URL = 'http://localhoxst:3000'
+export const BASE_URL = 'http://localhost:3000'
 export const ALL_PRODUCTS = BASE_URL + '/products'
 
 const client = async (url, {body, ...customConfig} = {}) => {
@@ -24,6 +24,7 @@ const client = async (url, {body, ...customConfig} = {}) => {
     if (response.statusText === 'OK') {
       return response.data
     }
+
     throw new Error(response.statusText)
   } catch (e) {
     return Promise.reject(e)

@@ -1,40 +1,22 @@
-import {useReducer} from 'react'
 import styled from 'styled-components'
-import {getFontSize, inter} from '../styles/mixins'
+import {getFontSize, inter} from '../../components/styles/mixins'
 
 import Minus from '../../assets/img/minus.svg?react'
 import Plus from '../../assets/img/plus.svg?react'
 
-const countReducer = (state, {type}) => {
-  switch (type) {
-    case 'decrementCount': {
-      return state - 1
-    }
-    case 'incrementCount': {
-      return state + 1
-    }
-    default:
-      return state
-  }
-}
-
-const CountChanger = (props) => {
-  const [count, dispatch] = useReducer(countReducer, 1)
-
+const CountChanger = ({value, onIncrement, onDecrement, ...props}) => {
   return (
     <StyledCountChanger {...props}>
       <button
-        className={count === 1 ? 'disabled' : ''}
-        onClick={() => {
-          if (count === 1) {
-            return
-          }
-          dispatch({type: 'decrementCount'})
-        }}>
+        className={value === 1 ? 'disabled' : ''}
+        onClick={onDecrement}
+      >
         <Minus/>
       </button>
-      <span>{count}</span>
-      <button onClick={() => dispatch({type: 'incrementCount'})}>
+      <span>{value}</span>
+      <button
+        onClick={onIncrement}
+      >
         <Plus/>
       </button>
     </StyledCountChanger>

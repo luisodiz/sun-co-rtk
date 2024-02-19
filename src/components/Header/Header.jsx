@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 import Logo from '../Logo/Logo'
 import Container from '../Container/Container'
-import ViewCart from '../ViewCart/ViewCart'
+import CartButton from '../../features/cart/CartButton'
 
 const Header = () => {
   return (
     <StyledHeader>
       <StyledContainer>
         <Logo/>
-        <ViewCart/>
+        <CartButton/>
       </StyledContainer>
     </StyledHeader>
   )

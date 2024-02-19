@@ -1,33 +1,32 @@
 import styled from 'styled-components'
 import {useState, useEffect} from 'react'
+import {useSelector} from 'react-redux'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {useSwiper} from 'swiper/react'
 
 import Chevron from '../../assets/img/chevron-right.svg?react'
-import Card from '../Card/Card'
+import Card from '../../features/products/Card'
+
+import {selectProductsIds} from '../../features/products/productsSlice'
 
 import 'swiper/css'
 
-const ProductsSlider = ({products, ...props}) => {
+const ProductsSlider = () => {
+  const productsIds = useSelector(selectProductsIds)
+
+  const renderedSlides = productsIds.map(productId => (
+    <SwiperSlide key={productId}>
+      <Card productId={productId}/>
+    </SwiperSlide>
+  ))
+
   return (
     <StyledProductsSlider>
       <Swiper
         spaceBetween={16}
         slidesPerView="auto"
-        {...props}
       >
-        {products?.length > 0 &&
-          products.map(({id, preview, title, description, price}) => (
-            <SwiperSlide key={id}>
-              <Card
-                id={id}
-                img={preview}
-                title={title}
-                description={description}
-                price={price}
-              />
-            </SwiperSlide>
-          ))}
+        {renderedSlides}
         <Nav/>
       </Swiper>
     </StyledProductsSlider>
