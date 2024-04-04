@@ -35,5 +35,7 @@ module.exports = {
     'prettier/prettier': [
       'warn'
     ],
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off'
   },
 }
