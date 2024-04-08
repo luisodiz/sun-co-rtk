@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "jsx": "react-jsx",
+    "paths": {
+      "components/*": ["./components/*"],
+      "app/*": ["./app/*"],
+      "assets/*": ["./assets/*"],
+      "api/*": ["./api/*"],
+      "features/*": ["./features/*"],
+      "pages/*": ["./pages/*"],
+      "utils/*": ["./utils/*"],
+      "types": ["types"],
+      "types/*": ["./types/*"]
+    },
+    "moduleResolution": "nodenext"
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}
