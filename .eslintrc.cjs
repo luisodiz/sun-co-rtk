@@ -7,7 +7,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:react/jsx-runtime'
   ],
   'overrides': [
     {
@@ -36,6 +37,6 @@ module.exports = {
       'warn'
     ],
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-uses-react': 'off'
+    "@typescript-eslint/no-explicit-any": 'warn'
   },
 }
